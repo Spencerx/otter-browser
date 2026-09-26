@@ -1,6 +1,6 @@
 /**************************************************************************
 * Otter Browser: Web browser controlled by the user, not vice-versa.
-* Copyright (C) 2013 - 2025 Michal Dutkiewicz aka Emdek <michal@emdek.pl>
+* Copyright (C) 2013 - 2026 Michal Dutkiewicz aka Emdek <michal@emdek.pl>
 * Copyright (C) 2015 Jan Bajer aka bajasoft <jbajer@gmail.com>
 *
 * This program is free software: you can redistribute it and/or modify
@@ -35,10 +35,8 @@ TrayIcon::TrayIcon(Application *parent) : QObject(parent),
 	Menu *menu(new Menu());
 	menu->addAction(tr("Show Windows"), this, &TrayIcon::toggleWindowsVisibility);
 
-	for (int i = 0; i < actions.count(); ++i)
+	for (int identifier: actions)
 	{
-		const int identifier(actions.at(i));
-
 		if (identifier < 0)
 		{
 			menu->addSeparator();
